@@ -72,15 +72,15 @@ namespace CollectionsMasterConsoleUI
 
             //Print the capacity of the list to the console
 
-            Console.WriteLine($"{numList.Capacity}");
+            Console.WriteLine($"List starting capacity: {numList.Capacity}");
 
             //Populate the List with 50 random numbers between 0 and 50 you will need a method for this            
 
-
+           Populater(numList);
 
             //Print the new capacity
-            
 
+            Console.WriteLine($"List capacity after population: {numList.Capacity}");
             Console.WriteLine("---------------------");
 
             //Create a method that prints if a user number is present in the list
@@ -118,19 +118,22 @@ namespace CollectionsMasterConsoleUI
             for (int i = 0; i < numbers.Length; i++)
             {
                 if (numbers[i] % 3 == 0)
+                {
+                    numbers[i] = 0;
+                }
             }
         }
 
         private static void OddKiller(List<int> numberList)
         {
-            
+            for (int i = 0; i < numberList.Count; i++)
+            {
+                if (numberList[i] % 2 == 0)
+                {
+                    numberList.Remove(numberList[i]);
+                }
+            }
         }
-
-        private static void NumberChecker(List<int> numberList, int searchNumber)
-        {
-            
-        }
-
         private static void Populater(List<int> numberList)
         {
             while (numberList.Count < 51)
