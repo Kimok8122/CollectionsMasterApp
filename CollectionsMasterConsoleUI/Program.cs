@@ -58,18 +58,25 @@ namespace CollectionsMasterConsoleUI
             Console.WriteLine("\n************End Arrays*************** \n");
             #endregion
 
+            // END of ARRAYS 
+
             #region Lists
             Console.WriteLine("************Start Lists**************");
 
             /*   Set Up   */
             //Create an integer List
-            
+
+            var numList = new List<int>();
+
+
 
             //Print the capacity of the list to the console
-            
+
+            Console.WriteLine($"{numList.Capacity}");
 
             //Populate the List with 50 random numbers between 0 and 50 you will need a method for this            
-            
+
+
 
             //Print the new capacity
             
@@ -126,8 +133,14 @@ namespace CollectionsMasterConsoleUI
 
         private static void Populater(List<int> numberList)
         {
-            Random rng = new Random();
+            while (numberList.Count < 51)
+            {
+                Random rng = new Random();
+                var number = rng.Next(0, 50);
 
+                numberList.Add(number);
+            }
+            NumberPrinter(numberList);
         }
 
         private static void Populater(int[] numbers)
